@@ -1,22 +1,8 @@
 {
 	"folders": [
 		{
-			"path": "enterprise"
-		},
-		{
-			"path": "odoo"
-		},
-		{
-			"path": "internal"
-		},
-		{
-			"path": "mobile"
-		},
-		{
-			"path": "mobile-ios"
-		},
-		{
-			"path": "upgrade"
+			"path": "."
 		}
-	]
+	],
+	"settings": {}
 }
