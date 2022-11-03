@@ -1,3 +1,16 @@
+## Setup
+
+```
+sudo apt install docker.io docker-compose
+
+git clone git@github.com:pparidans/odooconfig Odoo
+
+cd Odoo
+git clone git@github.com:odoo/odoo
+...
+
+```
+
 ## Build & Start
 
 ```
