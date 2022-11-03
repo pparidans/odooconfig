@@ -1,12 +1,12 @@
 version: "3"
 services:
-  odoo-db:
+  db:
     image: postgres:14
     restart: always
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
-  odoo-dev:
+  dev:
     build: .
     ports:
       - "8069:8069"
@@ -16,8 +16,8 @@ services:
       - /var/tmp/odoo:/var/lib/odoo
     user: ${UID}
     environment:
-      PGHOST: odoo-db
+      PGHOST: db
       PGUSER: odoo
       PGPASSWORD: odoo
     depends_on:
-      - odoo-db
+      - db
