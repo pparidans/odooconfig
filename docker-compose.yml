@@ -10,6 +10,7 @@ services:
     build: .
     ports:
       - "8069:8069"
+      - "5678:5678"
     volumes:
       - .:/src
       - /etc/passwd:/etc/passwd:ro

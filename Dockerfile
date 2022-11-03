@@ -54,6 +54,14 @@ RUN curl -sSL $CHROME_URL -o /tmp/chrome.deb \
     && apt-get -y install --no-install-recommends /tmp/chrome.deb \
     && rm /tmp/chrome.deb
 
+# Install debugger
+
+RUN pip install debugpy
+
+EXPOSE 5678
+
+# Run Odoo
+
 EXPOSE 8069
 
 VOLUME ["/var/lib/odoo"]
@@ -62,5 +70,5 @@ ENV PGHOST=
 ENV PGUSER=
 ENV PGPASSWORD=
 
-ENTRYPOINT [ "python", "odoo/odoo-bin", "--data-dir", "/var/lib/odoo", "--dev", "xml,qweb,reload"]
+ENTRYPOINT [ "python", "-m", "debugpy", "--listen", "0.0.0.0:5678", "odoo/odoo-bin", "--data-dir", "/var/lib/odoo", "--dev", "xml,qweb,reload"]
 
