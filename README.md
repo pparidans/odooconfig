@@ -12,14 +12,7 @@ sudo usermod -aG docker $USER
 
 Clone this repository:
 ```
-git clone git@github.com:pparidans/odooconfig Odoo
-```
-
-Clone the Odoo repositories:
-```
-cd Odoo
-git clone git@github.com:odoo/odoo
-git clone...
+git clone git@github.com:pparidans/odooconfig
 ```
 
 ## Build & Start

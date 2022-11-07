@@ -12,7 +12,7 @@ services:
       - "8069:8069"
       - "5678:5678"
     volumes:
-      - .:/src
+      - ..:/src
       - /etc/passwd:/etc/passwd:ro
       - /var/tmp/odoo:/var/lib/odoo
     user: ${UID}
