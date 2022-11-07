@@ -25,7 +25,7 @@ RUN curl -sSL $WKHTMLTOPDF_URL -o /tmp/wkhtml.deb \
 RUN npm install --global es-check
 
 RUN curl -sSL https://raw.githubusercontent.com/odoo/odoo/master/requirements.txt -o /tmp/odoo-requirements.txt
-RUN pip install --no-cache-dir -r /tmp/odoo-requirements.txt inotify websocket-client
+RUN pip install --no-cache-dir -r /tmp/odoo-requirements.txt inotify websocket-client debugpy
 
 # Install Google Chrome
 
@@ -54,17 +54,12 @@ RUN curl -sSL $CHROME_URL -o /tmp/chrome.deb \
     && apt-get -y install --no-install-recommends /tmp/chrome.deb \
     && rm /tmp/chrome.deb
 
-# Install debugger
-
-RUN pip install debugpy
-
-EXPOSE 5678
-
 # Run Odoo
 
 EXPOSE 8069
+EXPOSE 5678
 
-VOLUME ["/var/lib/odoo"]
+VOLUME ["/var/lib/odoo", "/src"]
 
 ENV PGHOST=
 ENV PGUSER=
